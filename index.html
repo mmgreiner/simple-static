@@ -2,8 +2,15 @@
 <body>
     <h1>Azure Static Web Apps auth demo</h1>
     <div>
-        <a href="/.auth/login/aad">Login</a>
+        <a href="/.auth/login/aad">Log in with the Microsoft Identity Platform</a>
+        <a href="/.auth/login/facebook">Log in with Facebook</a>
+        <a href="/.auth/login/google">Log in with Google</a>
+        <a href="/.auth/login/twitter">Log in with Twitter</a>
+        <a href="/.auth/login/apple">Log in with Apple</a>
+        <br>
+        <p id="myuser"></p>
         <a href="/.auth/logout?post_logout_redirect_uri="https://wonderful-bay-09e697603.3.azurestaticapps.net>Logout</a>
+    
     </div>
     <div>
         <ul>
@@ -23,7 +30,11 @@
             }
 
             (async () => {
-                console.log(await getUserInfo());
+                ui = await getuserInfo();
+                //console.log(await getUserInfo());
+                console.log(ui);
+                var p = document.getElementById("myuser");
+                p.innerHTML = ui.userDetails;
             })();
     </script>
 </body>
